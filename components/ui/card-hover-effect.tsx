@@ -1,5 +1,5 @@
 "use client"
-
+import { FollowerPointerCard } from "./following-pointer";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -13,6 +13,7 @@ export const HoverEffect = ({
   skills?: {
     title: string;
     technologies: {
+      name: string;
       img: string;
       style?: React.CSSProperties;
       height: number;
@@ -54,14 +55,17 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
+          <Card className="overflow-visible">
             <CardTitle>{skill.title}</CardTitle>
             <div className="grid grid-cols-4 gap-2">
-                {skill.technologies.map((tech, techID) => (
+              {skill.technologies.map((tech, techID) => (
+                <FollowerPointerCard
+                  key={techID}
+                  title={tech.name}
+                >
                   <Image
-                    key={techID}
-                    src={"/techStack/" + tech.img}
-                    alt={`${tech.img.replace("/", "").replace(".svg", "")} logo`}
+                    src={`/techStack/${tech.img}`}
+                    alt={`${tech.img.replace(".svg", "").replace(".png", "")} logo`}
                     height={tech.height}
                     width={tech.width}
                     style={
@@ -70,8 +74,9 @@ export const HoverEffect = ({
                         : { filter: "grayscale(100%) brightness(1) invert(1)" }
                     }
                   />
-                ))}
-              </div>
+                </FollowerPointerCard>
+              ))}
+            </div>
           </Card>
         </h2>
       ))}

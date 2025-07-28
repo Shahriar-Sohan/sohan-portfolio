@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button"
 import { ArrowDown, Download } from "lucide-react"
-import Link from "next/link"
 import LightRays from '@/components/ui/LightRays';
 import ProfileCard from "./ui/ProfileCard";
 import './ui/waving-hand.css'
@@ -75,8 +73,7 @@ export function Hero() {
 
           </div>
         </div>
-        <div className="mr-20">
-
+        <div className="mr-20 animate-slideInRight">
           <ProfileCard
             name="Shahriar Sohan"
             title="Software Engineer"
@@ -89,6 +86,21 @@ export function Hero() {
             enableMobileTilt={true}
             onContactClick={() => console.log('Contact clicked')}
           />
+          <style jsx>{`
+            @keyframes slideInRight {
+              0% {
+                opacity: 0;
+                transform: translateX(500px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+            .animate-slideInRight {
+              animation: slideInRight 0.8s ease-out forwards;
+            }
+          `}</style>
         </div>
 
       </div>

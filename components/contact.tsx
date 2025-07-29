@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MessageCircle, Github, Linkedin, Twitter, ExternalLink, MapPin } from "lucide-react"
+import { Mail, MessageCircle, Github, Linkedin, Twitter, ExternalLink, MapPin, Facebook, Instagram } from "lucide-react"
 
 export function Contact() {
   const contactInfo = {
@@ -13,11 +13,13 @@ export function Contact() {
       linkedin: "https://www.linkedin.com/in/shahriar-sohan-48887b279/",
       github: "https://github.com/Shahriar-Sohan",
       twitter: "https://twitter.com/yourusername",
+      facebook: "https://www.facebook.com/profile.php?id=100081009558290",
+      instagram: "https://www.instagram.com/_.r1v4l._/",
     },
   }
 
   const handleEmailClick = () => {
-    window.location.href = `mailto:${contactInfo.email}`
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contactInfo.email}`, "_blank");
   }
 
   const handleWhatsAppClick = () => {
@@ -129,6 +131,28 @@ export function Contact() {
             >
               <Twitter className="w-5 h-5 mr-2" />
               Twitter
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white cursor-pointer"
+              onClick={() => window.open(contactInfo.social.facebook, "_blank")}
+            >
+              <Facebook className="w-5 h-5 mr-2" />
+              Facebook
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white cursor-pointer"
+              onClick={() => window.open(contactInfo.social.instagram, "_blank")}
+            >
+              <Instagram className="w-5 h-5 mr-2" />
+              Instagram
               <ExternalLink className="w-4 h-4 ml-2" />
             </Button>
           </div>

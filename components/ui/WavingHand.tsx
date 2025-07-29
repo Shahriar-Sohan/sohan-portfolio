@@ -1,18 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function WavingHand() {
-  const [animKey, setAnimKey] = useState(0);
+  const handRef = useRef<HTMLSpanElement>(null);
 
-  // Animate on mount by incrementing key once
-  useEffect(() => {
-    setAnimKey((k) => k + 1);
-  }, []);
-
-  function handleClick() {
-    setAnimKey((k) => k + 1);
+  function triggerWave() {
+    if (!handRef.current) return;
+    handRef.current.classList.remove("wave-animate");
+    // Trigger reflow to restart animation
+    void handRef.current.offsetWidth;
+    handRef.current.classList.add("wave-animate");
   }
+
+  useEffect(() => {
+    triggerWave();
+  }, []);
 
   return (
     <>
@@ -32,16 +35,19 @@ export default function WavingHand() {
           transform-origin: 70% 70%;
           cursor: pointer;
           user-select: none;
+        }
+        .wave-animate {
           animation: wave 1.5s forwards;
         }
       `}</style>
       <span
-        key={animKey}
-        onClick={handleClick}
+        ref={handRef}
+        onClick={triggerWave}
+        onMouseEnter={triggerWave}
         role="button"
         tabIndex={0}
         aria-label="Wave hand"
-        onKeyDown={(e) => e.key === "Enter" && handleClick()}
+        onKeyDown={(e) => e.key === "Enter" && triggerWave()}
         className="waving-hand"
       >
         👋

@@ -64,7 +64,7 @@ export function Projects() {
                       <h3 className="text-lg font-semibold text-white">{project.title}</h3>
                       {project.title.includes("PiNAS") && (
                         <Badge variant="destructive" className="ml-2 text-xs">
-                          Incomplete
+                          Ongoing
                         </Badge>
                       )}
                       <p className="text-sm text-gray-400 mt-1">{project.description}</p>

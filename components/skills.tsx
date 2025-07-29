@@ -7,8 +7,8 @@ export function Skills() {
     {
       title: "Languages",
       technologies: [
-        { name: "JavaScript", img: "javaScript.svg", height: 50, width: 50 },
-        { name: "TypeScript", img: "typeScript.svg", height: 50, width: 50 },
+        { name: "JavaScript", img: "javascript.svg", height: 50, width: 50 },
+        { name: "TypeScript", img: "typescript.svg", height: 50, width: 50 },
         { name: "C", img: "c.svg", height: 50, width: 50 },
         { name: "C++", img: "c++.svg", height: 50, width: 50 },
         { name: "Python", img: "python.svg", height: 50, width: 50 },

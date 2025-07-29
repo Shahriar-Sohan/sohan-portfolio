@@ -324,7 +324,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               alt={`${name || "User"} avatar`}
               width={100}
               height={100}
-              onError={(e) => {
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = "none";
               }}
@@ -333,11 +333,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               <div className="pc-user-info">
                 <div className="pc-user-details">
                   <div className="pc-mini-avatar">
-                    <img
+                    <Image
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      onError={(e) => {
+                      width={40}
+                      height={40}
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                         const target = e.target as HTMLImageElement;
                         target.style.opacity = "0.5";
                         target.src = avatarUrl;

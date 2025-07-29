@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react"
-import GitHubCalendar from "react-github-calendar"
+import GitHubCalendar, { Activity } from "react-github-calendar"
 
 export function About() {
   const [loading, setLoading] = useState(true)
@@ -8,7 +8,7 @@ export function About() {
 
   const currentYear = new Date().getFullYear()
 
-  const filterThisYear = (contributions: any[]) => {
+  const filterThisYear = (contributions: Activity[]): Activity[] => {
     return contributions.filter((day) => {
       const date = new Date(day.date)
       return date.getFullYear() === currentYear

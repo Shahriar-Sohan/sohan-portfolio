@@ -7,10 +7,24 @@ import './ui/waving-hand.css'
 import WavingHand from '@/components/ui/WavingHand';
 import { BoxReveal } from "./magicui/box-reveal";
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 640);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile;
+}
 
 export function Hero() {
   const [showHand, setShowHand] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,20 +36,22 @@ export function Hero() {
   return (
     <section className="min-h-screen">
       <div className="min-h-screen flex items-center justify-around ">
-        <div style={{ width: '100%', height: '110vh', position: 'absolute', top: 0 }}>
-          <LightRays
-            raysOrigin="left"
-            raysColor="#00ffff"
-            raysSpeed={2}
-            lightSpread={0.8}
-            rayLength={3}
-            followMouse={true}
-            mouseInfluence={0.8}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="custom-rays"
-          />
-        </div>
+        {!isMobile && (
+          <div style={{ width: '100%', height: '110vh', position: 'absolute', top: 0 }}>
+            <LightRays
+              raysOrigin="left"
+              raysColor="#00ffff"
+              raysSpeed={2}
+              lightSpread={0.8}
+              rayLength={3}
+              followMouse={true}
+              mouseInfluence={0.8}
+              noiseAmount={0.1}
+              distortion={0.05}
+              className="custom-rays"
+            />
+          </div>
+        )}
         <div className="container pl-6 flex justify-start">
           <div className="max-w-4xl mx-auto">
             <div>
@@ -73,37 +89,39 @@ export function Hero() {
 
           </div>
         </div>
-        <div className="mr-20 animate-slideInRight">
-          <ProfileCard
-            name="Shahriar Sohan"
-            title="Software Engineer"
-            handle="_.r1v4l._"
-            status="Online"
-            contactText="Contact Me"
-            avatarUrl="/sohan-pfp.jpg"
-            showUserInfo={true}
-            enableTilt={true}
-            enableMobileTilt={true}
-            onContactClick={() => {
-              window.open("https://wa.me/351920492501", "_blank") 
-            }}
-          />
-          <style jsx>{`
-            @keyframes slideInRight {
-              0% {
-                opacity: 0;
-                transform: translateX(500px);
+        {!isMobile && (
+          <div className="mr-20 animate-slideInRight">
+            <ProfileCard
+              name="Shahriar Sohan"
+              title="Software Engineer"
+              handle="_.r1v4l._"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl="/sohan-pfp.jpg"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={true}
+              onContactClick={() => {
+                window.open("https://wa.me/351920492501", "_blank");
+              }}
+            />
+            <style jsx>{`
+              @keyframes slideInRight {
+                0% {
+                  opacity: 0;
+                  transform: translateX(500px);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateX(0);
+                }
               }
-              100% {
-                opacity: 1;
-                transform: translateX(0);
+              .animate-slideInRight {
+                animation: slideInRight 0.8s ease-out forwards;
               }
-            }
-            .animate-slideInRight {
-              animation: slideInRight 0.8s ease-out forwards;
-            }
-          `}</style>
-        </div>
+            `}</style>
+          </div>
+        )}
 
       </div>
       <div className="animate-bounce pb-12">

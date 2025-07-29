@@ -3,11 +3,9 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
   IconBrandX,
-  IconExchange,
   IconHome,
-  IconNewSection,
-  IconFileCv
-  
+  IconFileCv,
+  IconBrandLinkedin
 } from "@tabler/icons-react";
 
 export function Navbar() {
@@ -15,11 +13,11 @@ export function Navbar() {
    
 
     {
-      title: "Components",
+      title: "LinkedIn",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.linkedin.com/in/shahriar-sohan-48887b279/",
     },
     {
       title: "Resume",

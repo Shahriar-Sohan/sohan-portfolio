@@ -22,7 +22,7 @@ export function Hero() {
   return (
     <section className="min-h-screen">
       <div className="min-h-screen flex items-center justify-around ">
-        <div style={{ width: '100%', height: '800px', position: 'absolute', top: 0 }}>
+        <div style={{ width: '100%', height: '110vh', position: 'absolute', top: 0 }}>
           <LightRays
             raysOrigin="left"
             raysColor="#00ffff"
@@ -84,7 +84,9 @@ export function Hero() {
             showUserInfo={true}
             enableTilt={true}
             enableMobileTilt={true}
-            onContactClick={() => console.log('Contact clicked')}
+            onContactClick={() => {
+              window.open("https://wa.me/351920492501", "_blank") 
+            }}
           />
           <style jsx>{`
             @keyframes slideInRight {

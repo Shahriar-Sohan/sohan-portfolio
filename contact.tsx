@@ -2,16 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MessageCircle, Github, Linkedin, Twitter, ExternalLink, MapPin } from "lucide-react"
+import { Mail, MessageCircle, Github, Linkedin, Twitter, ExternalLink } from "lucide-react"
 
-export function Contact() {
+export default function Contact() {
   const contactInfo = {
-    email: "sohanineu@gmail.com",
-    whatsapp: "+351920492501",
-    whatsappLink: "https://wa.me/351920492501",
+    email: "your.email@example.com",
+    whatsapp: "+1234567890",
+    whatsappLink: "https://wa.me/1234567890",
     social: {
-      linkedin: "https://www.linkedin.com/in/shahriar-sohan-48887b279/",
-      github: "https://github.com/Shahriar-Sohan",
+      linkedin: "https://linkedin.com/in/yourprofile",
+      github: "https://github.com/yourusername",
       twitter: "https://twitter.com/yourusername",
     },
   }
@@ -36,7 +36,8 @@ export function Contact() {
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* Email Card */}
         <Card
-          className="hover:shadow-lg transition-shadow bg-gray-900 border-gray-800"
+          className="hover:shadow-lg transition-shadow cursor-pointer bg-gray-900 border-gray-800"
+          onClick={handleEmailClick}
         >
           <CardHeader className="text-center">
             <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4">
@@ -47,7 +48,7 @@ export function Contact() {
           </CardHeader>
           <CardContent className="text-center">
             <p className="font-medium text-gray-200 mb-4">{contactInfo.email}</p>
-            <Button onClick={handleEmailClick} className="w-full bg-white text-black hover:bg-gray-200 cursor-pointer">
+            <Button className="w-full bg-white text-black hover:bg-gray-200">
               <Mail className="w-4 h-4 mr-2" />
               Send Email
             </Button>
@@ -56,7 +57,8 @@ export function Contact() {
 
         {/* WhatsApp Card */}
         <Card
-          className="hover:shadow-lg transition-shadow bg-gray-900 border-gray-800"
+          className="hover:shadow-lg transition-shadow cursor-pointer bg-gray-900 border-gray-800"
+          onClick={handleWhatsAppClick}
         >
           <CardHeader className="text-center">
             <div className="mx-auto w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
@@ -67,29 +69,13 @@ export function Contact() {
           </CardHeader>
           <CardContent className="text-center">
             <p className="font-medium text-gray-200 mb-4">{contactInfo.whatsapp}</p>
-            <Button onClick={handleWhatsAppClick} className="w-full bg-green-600 hover:bg-green-700 text-white cursor-pointer">
+            <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
               <MessageCircle className="w-4 h-4 mr-2" />
               Message on WhatsApp
             </Button>
           </CardContent>
         </Card>
       </div>
-
-      {/* Location Card */}
-      <Card
-        className="bg-gray-900 border-gray-800 hover:shadow-lg transition-shadow mb-8"
-      >
-        <CardHeader className="text-center">
-          <div className="mx-auto w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
-            <MapPin className="w-6 h-6 text-blue-400" />
-          </div>
-          <CardTitle className="text-xl text-white">Location</CardTitle>
-          <CardDescription className="text-gray-400">Based in Portugal, Lisbon</CardDescription>
-        </CardHeader>
-        <CardContent className="text-center">
-          {/* No button or click handlers needed */}
-        </CardContent>
-      </Card>
 
       {/* Social Media Links */}
       <Card className="bg-gray-900 border-gray-800">
@@ -102,7 +88,7 @@ export function Contact() {
             <Button
               variant="outline"
               size="lg"
-              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white cursor-pointer"
+              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white"
               onClick={() => window.open(contactInfo.social.linkedin, "_blank")}
             >
               <Linkedin className="w-5 h-5 mr-2" />
@@ -113,7 +99,7 @@ export function Contact() {
             <Button
               variant="outline"
               size="lg"
-              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white cursor-pointer"
+              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white"
               onClick={() => window.open(contactInfo.social.github, "_blank")}
             >
               <Github className="w-5 h-5 mr-2" />
@@ -124,7 +110,7 @@ export function Contact() {
             <Button
               variant="outline"
               size="lg"
-              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white cursor-pointer"
+              className="flex-1 max-w-[200px] bg-transparent border-gray-700 text-white hover:bg-gray-800 hover:text-white"
               onClick={() => window.open(contactInfo.social.twitter, "_blank")}
             >
               <Twitter className="w-5 h-5 mr-2" />
@@ -142,7 +128,7 @@ export function Contact() {
           I'm currently open to new opportunities and would love to discuss how I can contribute to your team.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button size="lg" onClick={handleEmailClick} className="bg-white text-black hover:bg-gray-200 cursor-pointer">
+          <Button size="lg" onClick={handleEmailClick} className="bg-white text-black hover:bg-gray-200">
             <Mail className="w-4 h-4 mr-2" />
             Email Me
           </Button>
@@ -150,7 +136,7 @@ export function Contact() {
             size="lg"
             variant="outline"
             onClick={handleWhatsAppClick}
-            className="border-gray-700 text-white hover:bg-gray-800 hover:text-white bg-transparent cursor-pointer"
+            className="border-gray-700 text-white hover:bg-gray-800 hover:text-white bg-transparent"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
             WhatsApp

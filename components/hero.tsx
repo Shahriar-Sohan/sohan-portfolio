@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowDown, Download } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 import LightRays from '@/components/ui/LightRays';
 import ProfileCard from "./ui/ProfileCard";
 import './ui/waving-hand.css'
@@ -40,7 +40,7 @@ export function Hero() {
           <div className="max-w-4xl mx-auto">
             <div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 opacity-0 blur-md animate-[fadeSlideInLeft_0.8s_ease-out_forwards]">
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Sohan</span>
                 {showHand && (
                   <div className="inline-block">

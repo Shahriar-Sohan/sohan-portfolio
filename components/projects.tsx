@@ -4,14 +4,6 @@ import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 import { PinContainer } from "./ui/3d-pin"
 
-interface projects {
-  title: string,
-  description: string,
-  image: string,
-  technologies: string[],
-  liveUrl: string,
-  githubUrl: string,
-}
 
 export function Projects() {
   const projects = [

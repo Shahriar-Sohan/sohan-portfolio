@@ -29,7 +29,7 @@ export function Contact() {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold tracking-tight mb-4 text-white">Get In Touch</h2>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          Ready to discuss opportunities? I'd love to hear from you. Reach out through any of the channels below.
+          Ready to discuss opportunities? I&apos;d love to hear from you. Reach out through any of the channels below.
         </p>
       </div>
 
@@ -139,7 +139,7 @@ export function Contact() {
       <div className="text-center mt-12 p-6 bg-gray-900 border border-gray-800 rounded-lg">
         <h3 className="text-xl font-semibold mb-2 text-white">Looking for a Developer?</h3>
         <p className="text-gray-400 mb-4">
-          I'm currently open to new opportunities and would love to discuss how I can contribute to your team.
+          I&apos;m currently open to new opportunities and would love to discuss how I can contribute to your team.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button size="lg" onClick={handleEmailClick} className="bg-white text-black hover:bg-gray-200 cursor-pointer">

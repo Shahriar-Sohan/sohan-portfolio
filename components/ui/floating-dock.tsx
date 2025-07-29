@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -15,11 +14,9 @@ import { useRef, useState } from "react";
 export const FloatingDock = ({
   items,
   desktopClassName,
-  mobileClassName,
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
-  mobileClassName?: string;
 }) => {
   return (
     <FloatingDockDesktop items={items} className={desktopClassName} />
@@ -33,9 +30,9 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
-  let mouseX = useMotionValue(Infinity);
-  let [hovered, setHovered] = useState(false);
-  let scale = useSpring(hovered ? 1.15 : 1, {
+  const mouseX = useMotionValue(Infinity);
+  const [hovered, setHovered] = useState(false);
+  const scale = useSpring(hovered ? 1.15 : 1, {
     stiffness: 200,
     damping: 15,
   });
@@ -71,52 +68,52 @@ function IconContainer({
   icon: React.ReactNode;
   href: string;
 }) {
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
   // Default (desktop) sizes
- let widthDesktop = useTransform(distance, [-150, 0, 150], [50, 100, 50]);
-  let heightDesktop = useTransform(distance, [-150, 0, 150], [50, 100, 50]);
-  let widthIconDesktop = useTransform(distance, [-150, 0, 150], [28, 55, 28]);
-  let heightIconDesktop = useTransform(distance, [-150, 0, 150], [28, 55, 28]);
+  const widthDesktop = useTransform(distance, [-150, 0, 150], [50, 100, 50]);
+  const heightDesktop = useTransform(distance, [-150, 0, 150], [50, 100, 50]);
+  const widthIconDesktop = useTransform(distance, [-150, 0, 150], [28, 55, 28]);
+  const heightIconDesktop = useTransform(distance, [-150, 0, 150], [28, 55, 28]);
 
   // Smaller sizes for mobile — middle ground
-  let widthMobile = useTransform(distance, [-150, 0, 150], [35, 85, 35]);
-  let heightMobile = useTransform(distance, [-150, 0, 150], [35, 85, 35]);
-  let widthIconMobile = useTransform(distance, [-150, 0, 150], [18, 40, 18]);
-  let heightIconMobile = useTransform(distance, [-150, 0, 150], [18, 40, 18]);
+  const widthMobile = useTransform(distance, [-150, 0, 150], [35, 85, 35]);
+  const heightMobile = useTransform(distance, [-150, 0, 150], [35, 85, 35]);
+  const widthIconMobile = useTransform(distance, [-150, 0, 150], [18, 40, 18]);
+  const heightIconMobile = useTransform(distance, [-150, 0, 150], [18, 40, 18]);
 
   // Use a matchMedia check to choose appropriate values
-  let isMobile =
+  const isMobile =
     typeof window !== "undefined" &&
     window.matchMedia("(max-width: 640px)").matches;
 
-  let widthTransform = isMobile ? widthMobile : widthDesktop;
-  let heightTransform = isMobile ? heightMobile : heightDesktop;
-  let widthTransformIcon = isMobile ? widthIconMobile : widthIconDesktop;
-  let heightTransformIcon = isMobile ? heightIconMobile : heightIconDesktop;
+  const widthTransform = isMobile ? widthMobile : widthDesktop;
+  const heightTransform = isMobile ? heightMobile : heightDesktop;
+  const widthTransformIcon = isMobile ? widthIconMobile : widthIconDesktop;
+  const heightTransformIcon = isMobile ? heightIconMobile : heightIconDesktop;
 
-  let width = useSpring(widthTransform, {
+  const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let height = useSpring(heightTransform, {
+  const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  let widthIcon = useSpring(widthTransformIcon, {
+  const widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let heightIcon = useSpring(heightTransformIcon, {
+  const heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,

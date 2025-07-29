@@ -8,7 +8,7 @@ import WavingHand from '@/components/ui/WavingHand';
 import { BoxReveal } from "./magicui/box-reveal";
 
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     function handleResize() {

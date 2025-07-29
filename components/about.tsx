@@ -34,7 +34,10 @@ export function About() {
   }, [])
 
   return (
-    <section id="about" className="py-20 bg-muted/50 flex items-center justify-center min-h-[300px] relative">
+    <section
+      id="about"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/50 flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden max-w-full mx-auto"
+    >
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center space-x-2">
           <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce"></div>
@@ -44,15 +47,17 @@ export function About() {
       )}
       <div
         ref={calendarRef}
-        className={`transition-opacity duration-500 ${loading ? "opacity-0" : "opacity-100"}`}
+        className={`transition-opacity duration-500 ${loading ? "opacity-0" : "opacity-100"} max-w-full overflow-x-auto`}
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white max-w-full">
           My GitHub Contributions ({currentYear})
         </h2>
-        <GitHubCalendar
-          username="shahriar-sohan"
-          transformData={filterThisYear}
-        />
+        <div className="max-w-full overflow-x-auto">
+          <GitHubCalendar
+            username="shahriar-sohan"
+            transformData={filterThisYear}
+          />
+        </div>
       </div>
     </section>
   )

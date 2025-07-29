@@ -50,7 +50,7 @@ export function Navbar() {
     },
   ];
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center z-60 ">
+    <div className="hidden md:flex fixed bottom-4 left-1/2 -translate-x-1/2 items-center justify-center z-60">
       <FloatingDock
         mobileClassName="translate-y-0"
         items={links}

@@ -38,8 +38,9 @@ export function Projects() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-24">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+          {/* Desktop grid with PinContainer */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <PinContainer
                 key={index}
@@ -72,7 +73,11 @@ export function Projects() {
                     <div>
                       <div className="flex flex-wrap gap-2 mb-3">
                         {project.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary" className="text-xs bg-gray-700 border-gray-600 text-gray-300">
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
+                            className="text-xs bg-gray-700 border-gray-600 text-gray-300"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -96,8 +101,63 @@ export function Projects() {
                 </div>
               </PinContainer>
             ))}
-
           </div>
+
+          {/* Mobile grid with simple cards */}
+          <div className="grid md:hidden grid-cols-1 gap-6">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-black rounded-xl border border-gray-800 shadow-sm flex flex-col overflow-hidden"
+              >
+                {project.image && (
+                  <div className="relative h-40">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col flex-1 p-4 justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                    {project.title.includes("PiNAS") && (
+                      <Badge variant="destructive" className="ml-2 text-xs">
+                        Ongoing
+                      </Badge>
+                    )}
+                    <p className="text-sm text-gray-400 mt-1">{project.description}</p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {project.technologies.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="secondary" className="text-xs bg-gray-700 border-gray-600 text-gray-300">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </a>
+                      </Button>
+                      <Button size="sm" variant="outline" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

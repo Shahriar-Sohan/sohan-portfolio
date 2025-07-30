@@ -24,7 +24,7 @@ export function Navbar() {
       icon: (
         <IconFileCv stroke={1.25} width={128} height={128} />
       ),
-      href: "#",
+      href: "/CV.pdf",
     },
      {
       title: "Home",

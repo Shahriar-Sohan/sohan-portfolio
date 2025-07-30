@@ -27,7 +27,7 @@ export function Contact() {
   }
 
   return (
-    <section className="py-12 px-4 max-w-4xl mx-auto bg-black min-h-screen">
+    <section className="py-12 flex flex-col items-center justify-center px-4 max-w-4xl mx-auto bg-black min-h-screen">
       <div className="text-center mb-10 px-2 sm:px-0">
         <h2 className="text-3xl font-bold tracking-tight mb-3 text-white">Get In Touch</h2>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-2 sm:px-0">
@@ -77,9 +77,39 @@ export function Contact() {
         </Card>
       </div>
 
+      {/* Resume Download Card */}
+      <Card className="w-full bg-gray-900 border-gray-800 hover:shadow-lg transition-shadow max-w-2xl mx-auto mb-8 px-8">
+        <CardHeader className="text-center">
+          <div className="mx-auto w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mb-4">
+            <ExternalLink className="w-6 h-6 text-yellow-400" />
+          </div>
+          <CardTitle className="text-xl text-white">Resume</CardTitle>
+          <CardDescription className="text-gray-400">View or download my CV</CardDescription>
+        </CardHeader>
+        <CardContent className="text-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="/CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium transition"
+            >
+              View CV
+            </a>
+            <a
+              href="/CV.pdf"
+              download
+              className="w-full sm:w-auto bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 px-4 py-2 rounded-md text-sm font-medium transition"
+            >
+              Download CV
+            </a>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Location Card */}
       <Card
-        className="bg-gray-900 border-gray-800 hover:shadow-lg transition-shadow mb-8 px-2 sm:px-0"
+        className="w-full bg-gray-900 border-gray-800 hover:shadow-lg transition-shadow mb-8 px-2 sm:px-0"
       >
         <CardHeader className="text-center">
           <div className="mx-auto w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
@@ -94,7 +124,7 @@ export function Contact() {
       </Card>
 
       {/* Social Media Links */}
-      <Card className="bg-gray-900 border-gray-800 px-2 sm:px-0">
+      <Card className="w-full bg-gray-900 border-gray-800 px-2 sm:px-0">
         <CardHeader className="text-center">
           <CardTitle className="text-xl text-white">Connect on Social Media</CardTitle>
           <CardDescription className="text-gray-400">Follow my work and professional updates</CardDescription>
@@ -159,8 +189,10 @@ export function Contact() {
         </CardContent>
       </Card>
 
+      
+
       {/* Call to Action */}
-      <div className="text-center mt-10 p-6 bg-gray-900 border border-gray-800 rounded-lg px-2 sm:px-0">
+      <div className="w-full text-center mt-10 p-6 bg-gray-900 border border-gray-800 rounded-lg px-2 sm:px-0">
         <h3 className="text-xl font-semibold mb-2 text-white">Looking for a Developer?</h3>
         <p className="text-gray-400 mb-4">
           I&apos;m currently open to new opportunities and would love to discuss how I can contribute to your team.

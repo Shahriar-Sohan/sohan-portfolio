@@ -26,7 +26,7 @@ export function Projects() {
     {
       title: "PiNAS - Personal Cloud Storage (Work in progress)",
       description: "A self-hosted NAS system built in C++ with multithreading, REST API using drogon c++, and Docker deployment on Raspberry Pi 5, supporting file syncing and streaming.",
-      image: "/placeholder.svg?height=200&width=400&text=NAS+Solution",
+      image: "",
       technologies: ["Drogon C++", "C", "Multithreading", "Docker", "REST API", "Raspberry Pi", "Linux", "CMake"],
       liveUrl: "#",
       githubUrl: "https://github.com/Shahriar-Sohan/NAS_by_rivalray",

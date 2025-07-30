@@ -81,8 +81,7 @@ export function Hero() {
             </div>
             <BoxReveal>
               <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Self-taught Full-Stack Engineer specializing in scalable system design, clean architecture, and performant code. Deeply passionate about optimizing algorithms, mastering modern frameworks, and architecting maintainable, test-driven applications that solve real-world problems efficiently.”
-              </p>
+                Self-taught Full-Stack Developer passionate about building scalable, efficient, and clean systems. Currently looking for an internship or junior role in frontend or backend development. I don’t code for the money — I code because it’s what I genuinely love doing.              </p>
             </BoxReveal>
 
 

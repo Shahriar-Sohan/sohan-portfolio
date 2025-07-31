@@ -2,7 +2,7 @@
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
-  IconBrandX,
+  IconMail,
   IconHome,
   IconFileCv,
   IconBrandLinkedin
@@ -35,11 +35,12 @@ export function Navbar() {
     },
 
     {
-      title: "Twitter",
+      title: "Email",
       icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=sohanineu@gmail.com",
+      target: "_blank"
     },
     {
       title: "GitHub",

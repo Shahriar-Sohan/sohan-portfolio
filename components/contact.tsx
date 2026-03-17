@@ -7,8 +7,8 @@ import { Mail, MessageCircle, Github, Linkedin, Twitter, ExternalLink, MapPin, F
 export function Contact() {
   const contactInfo = {
     email: "sohanineu@gmail.com",
-    whatsapp: "+351920492501",
-    whatsappLink: "https://wa.me/351920492501",
+    whatsapp: "+351934700432",
+    whatsappLink: "https://wa.me/351934700432",
     social: {
       linkedin: "https://www.linkedin.com/in/shahriar-sohan-48887b279/",
       github: "https://github.com/Shahriar-Sohan",

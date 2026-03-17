@@ -12,7 +12,7 @@ export function Projects() {
       description: "An enterprise-grade food ordering and reservation platform .",
       image: "/projects/greek.png",
       technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Nginx", "Kubernetes", "AWS"],
-      liveUrl: "http://ec2-34-194-92-168.compute-1.amazonaws.com/",
+      liveUrl: "https://sohan-portfolio-navy.vercel.app/",
       githubUrl: "https://github.com/Shahriar-Sohan/restaurant_web",
     },
     {
@@ -22,14 +22,6 @@ export function Projects() {
       technologies: ["React", "Vite", "JavaScript", "Tailwind CSS", "Express", "Node.js", "MySQL", "REST API"],
       liveUrl: "https://rivalray.vercel.app",
       githubUrl: "https://github.com/Shahriar-Sohan/Rivalray_Ecommerce",
-    },
-    {
-      title: "PiNAS - Personal Cloud Storage (Work in progress)",
-      description: "A self-hosted NAS system built in C++ with multithreading, REST API using drogon c++, and Docker deployment on Raspberry Pi 5, supporting file syncing and streaming.",
-      image: "",
-      technologies: ["Drogon C++", "C", "Multithreading", "Docker", "REST API", "Raspberry Pi", "Linux", "CMake"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/Shahriar-Sohan/NAS_by_rivalray",
     }
   ]
 

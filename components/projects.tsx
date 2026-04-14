@@ -12,7 +12,7 @@ export function Projects() {
       description: "An enterprise-grade food ordering and reservation platform .",
       image: "/projects/greek.png",
       technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Nginx", "Kubernetes", "AWS"],
-      liveUrl: "https://sohan-portfolio-navy.vercel.app/",
+      liveUrl: "https://restaurant-web-lemon.vercel.app/",
       githubUrl: "https://github.com/Shahriar-Sohan/restaurant_web",
     },
     {
